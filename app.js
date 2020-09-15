@@ -10,7 +10,7 @@ const port = 1337;
 const users = require('./routes/users');
 const reports = require('./routes/reports');
 
-app.use(cors({credentials: true, origin: 'http://localhost:3000'}));
+app.use(cors({credentials: true, origin: 'https://ml-jsramverk.me'}));
 
 if (process.env.NODE_ENV !== 'test') {
     app.use(morgan('combined')); // 'combined' outputs the Apache style LOGs
