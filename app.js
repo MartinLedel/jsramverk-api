@@ -38,5 +38,10 @@ app.use((err, req, res, next) => {
     });
 });
 
+app.use((req, res, next) => {
+    var err = new Error("Not Found");
+    err.status = 404;
+    next(err);
+});
 // Start up server
 app.listen(port, () => console.log(`API listening on port ${port}!`));
