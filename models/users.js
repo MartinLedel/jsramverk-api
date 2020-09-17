@@ -62,8 +62,6 @@ const users = {
                         let payload = { email: user.email };
                         let jwtToken = jwt.sign(payload, jwtSecret, { expiresIn: '24h' });
 
-                        res.cookie('token', jwtToken, { expires: 0 });
-
                         return res.json({
                             data: {
                                 type: "success",

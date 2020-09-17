@@ -22,12 +22,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/', users);
 app.use('/reports', reports);
 
-app.use((req, res, next) => {
-    var err = new Error("Not Found");
-    err.status = 404;
-    next(err);
-});
-
 app.use((err, req, res, next) => {
     if (res.headersSent) {
         return next(err);
