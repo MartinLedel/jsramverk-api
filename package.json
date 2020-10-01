@@ -4,10 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon app.js",
-    "production": "NODE_ENV='production' node app.js"
+    "watch": "nodemon app.js",
+    "pretest": "bash db/reset_test_db.bash",
+    "test": "nyc --reporter=html --reporter=text --reporter=clover mocha --timeout 10000",
+    "start": "node app.js",
+    "clean": "rm -rf node_modules package-lock.json",
+    "eslint": "eslint"
   },
-  "author": "",
+  "author": "Martin",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -18,5 +22,14 @@
     "jsonwebtoken": "^8.5.1",
     "morgan": "^1.10.0",
     "sqlite3": "^5.0.0"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "eslint": "^7.10.0",
+    "eslint-plugin-react": "^7.21.2",
+    "javascript-style-guide": "^1.0.1",
+    "mocha": "^8.1.3",
+    "nyc": "^15.1.0"
   }
 }

@@ -20,7 +20,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/', users);
-app.use('/reports', reports);
+app.use('/reports/', reports);
 
 app.use((err, req, res, next) => {
     if (res.headersSent) {
@@ -44,4 +44,6 @@ app.use((req, res, next) => {
     next(err);
 });
 // Start up server
-app.listen(port, () => console.log(`API listening on port ${port}!`));
+const server = app.listen(port, () => console.log(`Api listening on port ${port}!`));
+
+module.exports = server;

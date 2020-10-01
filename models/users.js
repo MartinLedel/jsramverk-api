@@ -64,6 +64,7 @@ const users = {
 
                         return res.json({
                             data: {
+                                status: 200,
                                 type: "success",
                                 message: "User logged in",
                                 user: payload,
