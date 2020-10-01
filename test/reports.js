@@ -6,7 +6,7 @@ const server = require('../app.js');
 const config = require('../config/config.json');
 
 const jwt = require('jsonwebtoken');
-const secret = config.secret;
+const secret = config.secret || process.env.JWT_SECRET;
 const payload = { email: 'test@test.com' };
 const tempToken = jwt.sign(payload, secret, { expiresIn: '1h' });
 
