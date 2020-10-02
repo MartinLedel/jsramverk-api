@@ -1,5 +1,8 @@
 
 build:
+    environment:
+        variables:
+            JWT_SECRET: 'jwtSecret'
     nodes:
         coverage:
             tests:
