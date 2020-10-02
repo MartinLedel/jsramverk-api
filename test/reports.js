@@ -3,9 +3,15 @@ process.env.NODE_ENV = 'test';
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 const server = require('../app.js');
-
+let config;
+try {
+    config = require('../config/config.json');
+} catch (error) {
+    console.error(error);
+}
 const jwt = require('jsonwebtoken');
-const secret = process.env.JWT_SECRET
+
+const secret = process.env.JWT_SECRET || config.secret;
 const payload = { email: 'test@test.com' };
 const tempToken = jwt.sign(payload, secret, { expiresIn: '1h' });
 

@@ -8,7 +8,6 @@ try {
 } catch (error) {
     console.error(error);
 }
-
 const jwtSecret = process.env.JWT_SECRET || config.secret;
 
 const users = {
