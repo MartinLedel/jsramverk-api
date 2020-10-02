@@ -1,6 +1,10 @@
 const jwt = require('jsonwebtoken');
 
-let config = require('../config/config.json');
+try {
+    config = require('../config/config.json');
+} catch (error) {
+    console.error(error);
+}
 
 const jwtSecret = process.env.JWT_SECRET || config.secret;
 
