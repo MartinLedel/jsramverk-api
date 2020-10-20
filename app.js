@@ -11,8 +11,8 @@ const users = require('./routes/users');
 const reports = require('./routes/reports');
 const chat = require('./routes/chat');
 
-// app.use(cors({credentials: true, origin: 'https://ml-jsramverk.me'}));
-app.use(cors());
+app.use(cors({credentials: true, origin: 'https://ml-jsramverk.me'}));
+// app.use(cors());
 
 if (process.env.NODE_ENV !== 'test') {
     app.use(morgan('combined')); // 'combined' outputs the Apache style LOGs
