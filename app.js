@@ -9,8 +9,10 @@ const port = 1337;
 
 const users = require('./routes/users');
 const reports = require('./routes/reports');
+const chat = require('./routes/chat');
 
-app.use(cors({credentials: true, origin: 'https://ml-jsramverk.me'}));
+// app.use(cors({credentials: true, origin: 'https://ml-jsramverk.me'}));
+app.use(cors());
 
 if (process.env.NODE_ENV !== 'test') {
     app.use(morgan('combined')); // 'combined' outputs the Apache style LOGs
@@ -21,6 +23,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/', users);
 app.use('/reports/', reports);
+app.use('/chat/', chat);
 
 app.use((err, req, res, next) => {
     if (res.headersSent) {

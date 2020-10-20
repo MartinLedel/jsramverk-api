@@ -6,7 +6,7 @@
   "scripts": {
     "watch": "nodemon app.js",
     "pretest": "bash db/reset_test_db.bash",
-    "test": "nyc --reporter=html --reporter=text --reporter=clover mocha --timeout 10000",
+    "test": "nyc --reporter=html --reporter=text --reporter=clover mocha test/**/*.js --timeout 10000",
     "start": "node app.js",
     "clean": "rm -rf node_modules package-lock.json",
     "eslint": "eslint"
@@ -20,6 +20,7 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
+    "mongodb": "^3.6.2",
     "morgan": "^1.10.0",
     "sqlite3": "^5.0.0"
   },
